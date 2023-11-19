@@ -1,0 +1,20 @@
+oncall:
+  url: http://127.0.0.1:8080
+  interval: 5_000
+  user:
+    user-name: root
+    password: 1
+
+server:
+  port: 8089
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'prometheus,health'
+  metrics:
+    enable:
+      http.server.requests: true
+
+
