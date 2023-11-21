@@ -98,13 +98,13 @@ public class OncallProberService {
             log.info("Success create user");
         } catch (FeignException e) {
             proberCreateUserTotalScenarioFail.increment();
-            log.error("Error during create user {}", e.getMessage());
+            log.error("Error during create user {} {}", e.getMessage(), e.getStackTrace());
         } finally {
             try {
                 oncallService.deleteUser(oncallTestUser.getName());
                 log.info("Success delete test user");
             } catch (FeignException e) {
-                log.error("Error during delete user {}", e.getMessage());
+                log.error("Error during delete user {} {}", e.getMessage(), e.getStackTrace());
             }
         }
 
@@ -119,7 +119,7 @@ public class OncallProberService {
 
         } catch (JsonProcessingException | FeignException e) {
             proberLoginTotalScenarioFail.increment();
-            log.error("Error during login {}", e.getMessage());
+            log.error("Error during login {} {}", e.getMessage(), e.getStackTrace());
         }
     }
 
@@ -141,7 +141,7 @@ public class OncallProberService {
                 proberLoginTotalScenarioFail.increment();
             }
             proberLogoutTotalScenarioFail.increment();
-            log.error("Error during logout {}", e.getMessage());
+            log.error("Error during logout {} {}", e.getMessage(), e.getStackTrace());
         }
     }
 
