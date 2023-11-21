@@ -1,10 +1,23 @@
 oncall:
   url: http://127.0.0.1:8080
-  interval: 5_000
+  interval_low: 5_000
+  interval_medium: 15_000
   user:
     user-name: root
     password: 1
 
+prober:
+  user:
+    name: "test"
+    full_name: "Test"
+    time_zone: null
+    photo_url: null
+    active: 1
+    god: 0
+    contacts:
+      email: "test@sre-course.ru"
+      sms: "+1 311-111-1111"
+      call: "+1 311-111-1111"
 server:
   port: 8089
 
