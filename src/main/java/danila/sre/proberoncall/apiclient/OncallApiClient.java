@@ -25,8 +25,8 @@ public interface OncallApiClient {
     @PostMapping(value = "/logout", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     ResponseEntity<String> logout(@RequestAttribute("X-CSRF-TOKEN") String token) throws FeignException;
 
-    @Timed(value = "probe_logout_request_time",
-            description = "Time taken to execute /logout API request",
+    @Timed(value = "probe_create_user_request_time",
+            description = "Time taken to execute /api/v0/users/ API request",
             percentiles = {0.5, 0.8, 0.95, 0.99} )
     @PostMapping(value = "/api/v0/users/", consumes = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<String> createUser(@RequestBody OncallTestUser oncallTestUser);
